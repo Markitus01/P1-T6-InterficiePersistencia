@@ -52,9 +52,10 @@ public interface IGestorBDManager
      * Insereix l'equip a la BD
      * 
      * @param e Equip a inserir
+     * @return int Indicant la quantitat de linies inserides
      * @throws GestorBDManagerException 
      */
-    void afegirEquip(Equip e) throws GestorBDManagerException;
+    int afegirEquip(Equip e) throws GestorBDManagerException;
     
     /**
      * Modifica l'equip a la BD
@@ -138,7 +139,7 @@ public interface IGestorBDManager
      * @return Categoria obtenida
      * @throws GestorBDManagerException 
      */
-    Categoria obtenirCategoria(int categoria) throws GestorBDManagerException;
+    Categoria obtenirCategoria(String categoria) throws GestorBDManagerException;
     
     /**
      * Retorna l'usuari administrador de la BD loguejat amb login i contrasenya
