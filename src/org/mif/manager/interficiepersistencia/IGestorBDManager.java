@@ -52,7 +52,7 @@ public interface IGestorBDManager
      * Insereix l'equip a la BD
      * 
      * @param e Equip a inserir
-     * @return int Indicant la quantitat de linies inserides
+     * @return int Indicant la quantitat de linies afectades
      * @throws GestorBDManagerException 
      */
     int afegirEquip(Equip e) throws GestorBDManagerException;
@@ -61,17 +61,19 @@ public interface IGestorBDManager
      * Modifica l'equip a la BD
      * 
      * @param e Equip a modificar
+     * @return int Indicant la quantitat de linies afectades
      * @throws GestorBDManagerException 
      */
-    void modificarEquip(Equip e) throws GestorBDManagerException;
+    int modificarEquip(Equip e) throws GestorBDManagerException;
     
     /**
      * Esborra l'equip de la BD
      * 
      * @param e Equip a eliminar
+     * @return int Indicant la quantitat de linies afectades
      * @throws GestorBDManagerException 
      */
-    void eliminarEquip(Equip e) throws GestorBDManagerException;
+    int eliminarEquip(Equip e) throws GestorBDManagerException;
     
     /**
      * Retorna tots els jugadors de la BD
@@ -104,25 +106,28 @@ public interface IGestorBDManager
      * Insereix jugador a la BD
      * 
      * @param j Jugador a inserir
+     * @return int Indicant la quantitat de linies afectades
      * @throws GestorBDManagerException 
      */
-    void afegirJugador(Jugador j) throws GestorBDManagerException;
+    int afegirJugador(Jugador j) throws GestorBDManagerException;
     
     /**
      * Modifica el jugador a la BD
      * 
      * @param j Jugador a modificar
+     * @return int Indicant la quantitat de linies afectades
      * @throws GestorBDManagerException 
      */
-    void modificarJugador(Jugador j) throws GestorBDManagerException;
+    int modificarJugador(Jugador j) throws GestorBDManagerException;
     
     /**
      * ESborra el jugador de la BD
      * 
      * @param j Jugador a eliminar
+     * @return int Indicant la quantitat de linies afectades
      * @throws GestorBDManagerException 
      */
-    void eliminarJugador(Jugador j) throws GestorBDManagerException;
+    int eliminarJugador(Jugador j) throws GestorBDManagerException;
     
     /**
      * Retorna llistat amb totes les categories existents
@@ -154,7 +159,7 @@ public interface IGestorBDManager
     /**
      * Tanca la conexió amb la BD
      * 
-     * @throws GestorBDEmpresaException 
+     * @throws GestorBDManagerException 
      */
     void tancarCapa() throws GestorBDManagerException;
     
