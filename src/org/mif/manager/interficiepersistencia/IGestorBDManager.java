@@ -151,10 +151,10 @@ public interface IGestorBDManager
      * 
      * @param login Identificador del administrador (mail)
      * @param pswd Contrasenya del administrador
-     * @return Usuari administrador
+     * @return int Depenent de si troba o no l'usuari indicat
      * @throws GestorBDManagerException 
      */
-    Usuari retornarUsuari(String login, String pswd) throws GestorBDManagerException;
+    int loginUsuari(String login, String pswd) throws GestorBDManagerException;
     
     /**
      * Tanca la conexió amb la BD
