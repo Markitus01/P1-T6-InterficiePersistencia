@@ -76,13 +76,12 @@ public interface IGestorBDManager
     int eliminarEquip(Equip e) throws GestorBDManagerException;
     
     /**
-     * Retorna tots els jugadors de la BD segons la temporada escollida
+     * Retorna tots els jugadors de la BD
      * 
-     * @param t Temporada escollida
      * @return Llista de tots els jugadors
      * @throws GestorBDManagerException 
      */
-    List<Jugador> obtenirJugadors(Temporada t) throws GestorBDManagerException;
+    List<Jugador> obtenirJugadors() throws GestorBDManagerException;
     
     /**
      * Retorna llistat amb els jugadors que concordin amb nom/cognoms, equip o sexe introduits per cercar
