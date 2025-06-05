@@ -22,6 +22,15 @@ public interface IGestorBDManager
     List<Temporada> obtenirTemporades() throws GestorBDManagerException;
     
     /**
+     * Crea una nova temporada a la BD
+     * 
+     * @param data Data de la nova temporada en string
+     * @return int indicant si s'ha afegit la temporada (1) o no (0)
+     * @throws GestorBDManagerException 
+     */
+    int crearTemporada(String data) throws GestorBDManagerException;
+    
+    /**
      * Retorna el llistat de tots els equips de la BD per a la temporada escollida
      * @param t temporada escollida
      * @return Llista d'equips recuperats
@@ -56,7 +65,7 @@ public interface IGestorBDManager
      * @throws GestorBDManagerException 
      */
     int afegirEquip(Equip e) throws GestorBDManagerException;
-    
+
     /**
      * Modifica l'equip a la BD
      * 
@@ -84,6 +93,24 @@ public interface IGestorBDManager
     List<Jugador> obtenirJugadors() throws GestorBDManagerException;
     
     /**
+     * Retorna els jugadors d'un equip
+     * 
+     * @param eqId EquipId del qual volem obtenir els jugadors
+     * @return Llista dels jugadors de l'equip pasat per parametre
+     * @throws GestorBDManagerException 
+     */
+    List<Jugador> obtenirJugadorsEquip(int eqId) throws GestorBDManagerException;
+    
+    /**
+     * Retorna els jugadors inscriptibles dins l'equip especificat
+     * 
+     * @param eqId EquipId del qual volem obtenir els jugadors inscriptibles
+     * @return Llista dels jugadors que podrien inscriure-s'hi a l'equip
+     * @throws GestorBDManagerException 
+     */
+    List<Jugador> obtenirJugadorsEquipInscriptibles(int eqId) throws GestorBDManagerException;
+    
+    /**
      * Retorna llistat amb els jugadors que concordin amb nom/cognoms, equip o sexe introduits per cercar
      * 
      * @param nomJugador Nom o Cognoms dels jugadors o jugador que es volen cercar
@@ -96,11 +123,11 @@ public interface IGestorBDManager
     
     /**
      * Retorna el jugador obtingut a partir de la seva id
-     * @param idJugador id del jugador a obtenir
+     * @param idJugador id legal del jugador a obtenir
      * @return Jugador obtingut
      * @throws GestorBDManagerException 
      */
-    Jugador obtenirJugador(int idJugador) throws GestorBDManagerException;
+    Jugador obtenirJugador(String idJugador) throws GestorBDManagerException;
     
     /**
      * Insereix jugador a la BD
@@ -128,6 +155,42 @@ public interface IGestorBDManager
      * @throws GestorBDManagerException 
      */
     int eliminarJugador(Jugador j) throws GestorBDManagerException;
+    
+    /**
+     * Obtenim les relacions de membres de la BD
+     * 
+     * @return Llista de membres
+     * @throws GestorBDManagerException 
+     */
+    List<Membre> obtenirMembres() throws GestorBDManagerException;
+    
+    /**
+     * Afegeix una nova relació membre a la BD
+     * 
+     * @param m Membre a afegir
+     * @return int Indicant la quantitat de linies afectades
+     * @throws GestorBDManagerException 
+     */
+    int afegirMembre(Membre m) throws GestorBDManagerException;
+    
+    /**
+     * Modifica una relació membre a la BD
+     * 
+     * @param m Membre a modificar
+     * @param titular Nou estat de titularitat
+     * @return int Indicant la quantitat de linies afectades
+     * @throws GestorBDManagerException 
+     */
+    int modificarMembre(Membre m, boolean titular) throws GestorBDManagerException;
+    
+    /**
+     * Elimina una relació membre a la BD
+     * 
+     * @param m Membre a eliminar
+     * @return int Indicant la quantitat de linies afectades
+     * @throws GestorBDManagerException 
+     */
+    int eliminarMembre(Membre m) throws GestorBDManagerException;
     
     /**
      * Retorna llistat amb totes les categories existents
