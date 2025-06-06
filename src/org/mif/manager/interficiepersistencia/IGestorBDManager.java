@@ -130,6 +130,16 @@ public interface IGestorBDManager
     Jugador obtenirJugador(String idJugador) throws GestorBDManagerException;
     
     /**
+     * Comprova si un jugador és titular a un equip.
+     * 
+     * @param equipId id de l'equip
+     * @param jugadorId id del jugador
+     * @return true si és titular, false si és convidat o no hi és
+     * @throws GestorBDManagerException
+    */
+    boolean esTitular(int equipId, int jugadorId) throws GestorBDManagerException;
+    
+    /**
      * Insereix jugador a la BD
      * 
      * @param j Jugador a inserir
@@ -155,6 +165,15 @@ public interface IGestorBDManager
      * @throws GestorBDManagerException 
      */
     int eliminarJugador(Jugador j) throws GestorBDManagerException;
+    
+    /**
+     * Retorna l'id de l'equip on el jugador és titular, o null si no n'és a cap.
+     * 
+     * @param jugadorId id del jugador a consultar
+     * @return id de l'equip o null si no n'és titular a cap equip
+     * @throws GestorBDManagerException 
+    */
+    Integer obtenirEquipOnEsTitular(int jugadorId) throws GestorBDManagerException;
     
     /**
      * Obtenim les relacions de membres de la BD
@@ -191,6 +210,16 @@ public interface IGestorBDManager
      * @throws GestorBDManagerException 
      */
     int eliminarMembre(Membre m) throws GestorBDManagerException;
+    
+    /**
+     * Elimina totes les relacions membre associades a un equip
+     * 
+     * @param equipId id de l'equip del qual es volen eliminar tots els membres
+     * @return int nombre de membres eliminats
+     * @throws GestorBDManagerException
+    */
+   int eliminarMembresEquip(int equipId) throws GestorBDManagerException;
+
     
     /**
      * Retorna llistat amb totes les categories existents
