@@ -176,12 +176,13 @@ public interface IGestorBDManager
     Integer obtenirEquipOnEsTitular(int jugadorId) throws GestorBDManagerException;
     
     /**
-     * Obtenim les relacions de membres de la BD
+     * Retorna tots els membres d'una temporada concreta.
      * 
-     * @return Llista de membres
+     * @param t Temporada de la qual volem els membres
+     * @return Llista de membres d'aquella temporada
      * @throws GestorBDManagerException 
-     */
-    List<Membre> obtenirMembres() throws GestorBDManagerException;
+    */
+    List<Membre> obtenirMembres(Temporada t) throws GestorBDManagerException;
     
     /**
      * Afegeix una nova relació membre a la BD
